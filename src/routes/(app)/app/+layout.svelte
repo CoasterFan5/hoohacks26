@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import { remoteLogout } from '$lib/remote/logout.remote';
 
 	const {
 		children
@@ -9,41 +11,42 @@
 	} = $props();
 
 	function goHome() {
-		goto('/app');
+		goto(resolve('/app'));
 	}
 
 	function goToFinance() {
-		goto('/app/cFinance');
+		goto(resolve('/app/cFinance'));
 	}
 
 	function goToWeather() {
-		goto('/app/rWeatherInt');
+		goto(resolve('/app/rWeatherInt'));
 	}
 
 	function goToOptimization() {
-		goto('/app/sProfOpt');
+		goto(resolve('/app/sProfOpt'));
 	}
 
-	function logout() {
-		goto('/auth/logout');
+	const logout = async () => {
+      await remoteLogout({})
+      goto(resolve("/"))
 	}
 </script>
 
 <div class="app-shell">
 	<header class="topbar">
-		<button class="brand" on:click={goHome}>
+		<button class="brand" onclick={goHome}>
 			Moonance
 		</button>
 
 		<nav class="nav-links">
-			<button on:click={goHome}>Home</button>
-			<button on:click={goToFinance}>Current Finance</button>
-			<button on:click={goToWeather}>Weather Intelligence</button>
-			<button on:click={goToOptimization}>Profit Optimization</button>
+			<button onclick={goHome}>Home</button>
+			<button onclick={goToFinance}>Current Finance</button>
+			<button onclick={goToWeather}>Weather Intelligence</button>
+			<button onclick={goToOptimization}>Profit Optimization</button>
 		</nav>
 
 		<div class="actions">
-			<button class="logout-btn" on:click={logout}>Logout</button>
+			<button class="logout-btn" onclick={logout}>Logout</button>
 		</div>
 	</header>
 
