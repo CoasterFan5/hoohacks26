@@ -203,7 +203,7 @@
         <div class="stat-desc">Farm operators in the U.S. underserved by existing fintech</div>
       </div>
       <div class="stat">
-        <div class="stat-num">$543B</div>
+        <div class="stat-num">$1.2T</div>
         <div class="stat-desc">Total U.S. agricultural output annually</div>
       </div>
       <div class="stat">
