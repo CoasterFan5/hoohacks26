@@ -95,6 +95,10 @@ export const GET: RequestHandler = async (event) => {
       picture: userDetails.picture
     }).returning()
 
+    if (!newUser) {
+      throw new Error("Failed to create user")
+    }
+
     const item = newUser[0]
     await createSession(item, {
       expires: respParsed.data.expires_in,
