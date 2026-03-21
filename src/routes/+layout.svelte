@@ -3,6 +3,12 @@
 	import '@fontsource-variable/roboto';
 
 	let { children } = $props();
+
+	import { initializeAuth } from '$lib/stores/auth';
+
+	$effect(() => {
+		initializeAuth();
+	});
 </script>
 
 <svelte:head>
