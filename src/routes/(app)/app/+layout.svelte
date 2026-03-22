@@ -4,10 +4,10 @@
 	import { resolve } from '$app/paths';
 	import { remoteLogout } from '$lib/remote/logout.remote';
 	import { page } from '$app/stores';
-	import PHhousesimple from '~icons/ph/house-simple'
-	import PHcurrencydollar from '~icons/ph/currency-dollar'
-	import PHcloud from '~icons/ph/cloud'
-	import PHmoney from '~icons/ph/money'
+	import PHhousesimple from '~icons/ph/house-simple';
+	import PHcurrencydollar from '~icons/ph/currency-dollar';
+	import PHcloud from '~icons/ph/cloud';
+	import PHmoney from '~icons/ph/money';
 
 	const {
 		children
@@ -20,7 +20,7 @@
 	}
 
 	function goToFinance() {
-		goto(resolve('/app/cFinance'));
+		goto(resolve('/app/finance'));
 	}
 
 	function goToWeather() {
@@ -37,24 +37,25 @@
 	};
 
 	const navItems = [
-		{ label: 'Home', icon: PHhousesimple,  action: goHome },
+		{ label: 'Home', icon: PHhousesimple, action: goHome },
 		{ label: 'Core Finance', icon: PHcurrencydollar, action: goToFinance },
 		{ label: 'Weather Intelligence', icon: PHcloud, action: goToWeather },
-		{ label: 'Profit Optimization', icon: PHmoney, action: goToOptimization },
+		{ label: 'Profit Optimization', icon: PHmoney, action: goToOptimization }
 	];
 </script>
 
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	/>
 </svelte:head>
 
 <div class="app-shell">
-
 	<!-- ── SIDEBAR ── -->
 	<aside class="sidebar">
-
 		<!-- Logo -->
 		<button class="brand" onclick={goHome}>
 			<span class="logo-moo">Moo</span><span class="logo-nance">nance</span>
@@ -67,7 +68,7 @@
 			<div class="nav-label">Navigation</div>
 			{#each navItems as item}
 				<button class="nav-item" onclick={item.action}>
-					<item.icon/>
+					<item.icon />
 					<span class="nav-text">{item.label}</span>
 				</button>
 			{/each}
@@ -89,33 +90,35 @@
 			<span class="foot-mono">Financial intelligence</span>
 			<span class="foot-mono">for the land.</span>
 		</div>
-
 	</aside>
 
 	<!-- ── MAIN CONTENT ── -->
 	<main class="page-content">
 		{@render children?.()}
 	</main>
-
 </div>
 
 <style>
 	/* ── TOKENS (match landing page) ── */
 	:root {
-		--soil:   #0F0A04;
-		--earth:  #1C1208;
-		--bark:   #2E1E0A;
-		--rust:   #C4541A;
-		--amber:  #D4922A;
-		--wheat:  #E8C87A;
-		--cream:  #F0E8D5;
-		--muted:  #8A7A62;
-		--sage:   #6B8F5E;
+		--soil: #0f0a04;
+		--earth: #1c1208;
+		--bark: #2e1e0a;
+		--rust: #c4541a;
+		--amber: #d4922a;
+		--wheat: #e8c87a;
+		--cream: #f0e8d5;
+		--muted: #8a7a62;
+		--sage: #6b8f5e;
 		--sidebar-w: 230px;
 	}
 
 	/* ── RESET ── */
-	:global(*, *::before, *::after) { box-sizing: border-box; margin: 0; padding: 0; }
+	:global(*, *::before, *::after) {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 	:global(body) {
 		font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 		background: var(--earth);
@@ -132,10 +135,12 @@
 	/* ── SIDEBAR ── */
 	.sidebar {
 		position: fixed;
-		top: 0; left: 0; bottom: 0;
+		top: 0;
+		left: 0;
+		bottom: 0;
 		width: var(--sidebar-w);
 		background: var(--soil);
-		border-right: 1px solid rgba(212,146,42,.15);
+		border-right: 1px solid rgba(212, 146, 42, 0.15);
 		display: flex;
 		flex-direction: column;
 		padding: 28px 0 20px;
@@ -154,16 +159,22 @@
 		font-size: 22px;
 		font-weight: 700;
 		line-height: 1;
-		transition: opacity .2s;
+		transition: opacity 0.2s;
 	}
-	.brand:hover { opacity: .8; }
-	.logo-moo   { color: var(--wheat); }
-	.logo-nance { color: var(--amber); }
+	.brand:hover {
+		opacity: 0.8;
+	}
+	.logo-moo {
+		color: var(--wheat);
+	}
+	.logo-nance {
+		color: var(--amber);
+	}
 
 	/* Divider */
 	.sidebar-divider {
 		height: 1px;
-		background: rgba(212,146,42,.12);
+		background: rgba(212, 146, 42, 0.12);
 		margin: 0 16px 20px;
 	}
 
@@ -171,7 +182,7 @@
 	.nav-label {
 		font-family: 'DM Mono', monospace;
 		font-size: 9px;
-		letter-spacing: .18em;
+		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--muted);
 		padding: 0 24px;
@@ -201,10 +212,12 @@
 		font-weight: 400;
 		color: var(--muted);
 		text-align: left;
-		transition: background .18s, color .18s;
+		transition:
+			background 0.18s,
+			color 0.18s;
 	}
 	.nav-item:hover {
-		background: rgba(212,146,42,.08);
+		background: rgba(212, 146, 42, 0.08);
 		color: var(--cream);
 	}
 
@@ -215,10 +228,14 @@
 		flex-shrink: 0;
 	}
 
-	.nav-text { flex: 1; }
+	.nav-text {
+		flex: 1;
+	}
 
 	/* Spacer */
-	.sidebar-spacer { flex: 1; }
+	.sidebar-spacer {
+		flex: 1;
+	}
 
 	/* Logout */
 	.logout-btn {
@@ -228,7 +245,7 @@
 		width: calc(100% - 24px);
 		margin: 0 12px 16px;
 		background: none;
-		border: 1px solid rgba(196,84,26,.3);
+		border: 1px solid rgba(196, 84, 26, 0.3);
 		border-radius: 6px;
 		padding: 11px 12px;
 		cursor: pointer;
@@ -236,10 +253,12 @@
 		font-size: 14px;
 		color: var(--rust);
 		text-align: left;
-		transition: background .18s, border-color .18s;
+		transition:
+			background 0.18s,
+			border-color 0.18s;
 	}
 	.logout-btn:hover {
-		background: rgba(196,84,26,.1);
+		background: rgba(196, 84, 26, 0.1);
 		border-color: var(--rust);
 	}
 
@@ -253,8 +272,8 @@
 	.foot-mono {
 		font-family: 'DM Mono', monospace;
 		font-size: 9px;
-		color: rgba(138,122,98,.45);
-		letter-spacing: .06em;
+		color: rgba(138, 122, 98, 0.45);
+		letter-spacing: 0.06em;
 	}
 
 	/* ── MAIN CONTENT ── */
@@ -269,26 +288,44 @@
 
 	/* ── MOBILE: collapse sidebar to top bar ── */
 	@media (max-width: 768px) {
-		:root { --sidebar-w: 0px; }
+		:root {
+			--sidebar-w: 0px;
+		}
 
 		.sidebar {
 			position: fixed;
-			top: 0; left: 0; right: 0; bottom: auto;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: auto;
 			width: 100%;
 			flex-direction: row;
 			align-items: center;
 			padding: 0 16px;
 			height: 56px;
 			border-right: none;
-			border-bottom: 1px solid rgba(212,146,42,.15);
+			border-bottom: 1px solid rgba(212, 146, 42, 0.15);
 			overflow-x: auto;
 		}
 
-		.brand { margin-bottom: 0; font-size: 18px; padding: 0 8px 0 0; flex-shrink: 0; }
-		.sidebar-divider  { display: none; }
-		.nav-label        { display: none; }
-		.sidebar-foot     { display: none; }
-		.sidebar-spacer   { display: none; }
+		.brand {
+			margin-bottom: 0;
+			font-size: 18px;
+			padding: 0 8px 0 0;
+			flex-shrink: 0;
+		}
+		.sidebar-divider {
+			display: none;
+		}
+		.nav-label {
+			display: none;
+		}
+		.sidebar-foot {
+			display: none;
+		}
+		.sidebar-spacer {
+			display: none;
+		}
 
 		.sidebar-nav {
 			flex-direction: row;

@@ -2,23 +2,29 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 
-	function goToFinance()      { goto(resolve('/app/cFinance')); }
-	function goToWeather()      { goto(resolve('/app/rWeatherInt')); }
-	function goToOptimization() { goto(resolve('/app/sProfOpt')); }
+	function goToFinance() {
+		goto(resolve('/app/finance'));
+	}
+	function goToWeather() {
+		goto(resolve('/app/rWeatherInt'));
+	}
+	function goToOptimization() {
+		goto(resolve('/app/sProfOpt'));
+	}
 
 	// Placeholder KPI data — replace with real data from your backend
 	const kpis = [
-		{ label: 'Net Cash Position', value: '$84,320',  delta: '+4.2%',  up: true  },
-		{ label: 'Herd Valuation',    value: '$412,800', delta: '+1.8%',  up: true  },
-		{ label: 'YTD Income',        value: '$198,500', delta: '+12.4%', up: true  },
-		{ label: 'YTD Expenses',      value: '$114,180', delta: '+3.1%',  up: false },
+		{ label: 'Net Cash Position', value: '$84,320', delta: '+4.2%', up: true },
+		{ label: 'Herd Valuation', value: '$412,800', delta: '+1.8%', up: true },
+		{ label: 'YTD Income', value: '$198,500', delta: '+12.4%', up: true },
+		{ label: 'YTD Expenses', value: '$114,180', delta: '+3.1%', up: false }
 	];
 
 	const quickLinks = [
 		{
 			icon: '📊',
 			title: 'Core Finance',
-			desc: 'Track income, expenses, and your operation\'s overall financial health.',
+			desc: "Track income, expenses, and your operation's overall financial health.",
 			action: goToFinance,
 			tag: 'Phase 1'
 		},
@@ -35,21 +41,33 @@
 			desc: 'Medium-term projections and recommendations to maximize your margins.',
 			action: goToOptimization,
 			tag: 'Phase 1'
-		},
+		}
 	];
 
 	const recommendations = [
-		{ icon: '💡', text: 'Feeder prices are up 8% this week. Consider an early Q4 sale for optimal margin.' },
-		{ icon: '⚠️', text: 'Drought watch issued for your region. Review your hay reserves and insurance coverage.' },
-		{ icon: '📅', text: 'Q3 expense report is ready. Log in to Core Finance to review your cost breakdown.' },
+		{
+			icon: '💡',
+			text: 'Feeder prices are up 8% this week. Consider an early Q4 sale for optimal margin.'
+		},
+		{
+			icon: '⚠️',
+			text: 'Drought watch issued for your region. Review your hay reserves and insurance coverage.'
+		},
+		{
+			icon: '📅',
+			text: 'Q3 expense report is ready. Log in to Core Finance to review your cost breakdown.'
+		}
 	];
 
 	// Placeholder chart data — replace with real figures
-	const bars   = [42, 58, 51, 74, 66, 88];
+	const bars = [42, 58, 51, 74, 66, 88];
 	const months = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
 
 	const today = new Date().toLocaleDateString('en-US', {
-		weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+		weekday: 'long',
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric'
 	});
 </script>
 
@@ -58,7 +76,6 @@
 </svelte:head>
 
 <div class="page">
-
 	<!-- ── GREETING HEADER ── -->
 	<header class="page-header">
 		<div>
@@ -77,7 +94,8 @@
 					<div class="kpi-label">{k.label}</div>
 					<div class="kpi-value">{k.value}</div>
 					<div class="kpi-delta" class:up={k.up} class:down={!k.up}>
-						{k.up ? '▲' : '▼'} {k.delta} vs last period
+						{k.up ? '▲' : '▼'}
+						{k.delta} vs last period
 					</div>
 				</div>
 			{/each}
@@ -86,7 +104,6 @@
 
 	<!-- ── CHART + RECOMMENDATIONS ── -->
 	<section class="section mid-grid">
-
 		<div class="chart-card">
 			<div class="section-label">6-Month Profit Trend</div>
 			<div class="chart-area">
@@ -113,7 +130,6 @@
 				{/each}
 			</div>
 		</div>
-
 	</section>
 
 	<!-- ── QUICK LINKS ── -->
@@ -133,22 +149,21 @@
 			{/each}
 		</div>
 	</section>
-
 </div>
 
 <style>
 	/* ── TOKENS ── */
 	:root {
-		--soil:  #0F0A04;
-		--earth: #1C1208;
-		--bark:  #2E1E0A;
-		--rust:  #C4541A;
-		--amber: #D4922A;
-		--wheat: #E8C87A;
-		--cream: #F0E8D5;
-		--muted: #8A7A62;
-		--green: #5A9E5A;
-		--red:   #C44040;
+		--soil: #0f0a04;
+		--earth: #1c1208;
+		--bark: #2e1e0a;
+		--rust: #c4541a;
+		--amber: #d4922a;
+		--wheat: #e8c87a;
+		--cream: #f0e8d5;
+		--muted: #8a7a62;
+		--green: #5a9e5a;
+		--red: #c44040;
 	}
 
 	/* ── PAGE ── */
@@ -167,12 +182,12 @@
 		flex-wrap: wrap;
 		gap: 12px;
 		padding-bottom: 24px;
-		border-bottom: 1px solid rgba(212,146,42,.12);
+		border-bottom: 1px solid rgba(212, 146, 42, 0.12);
 	}
 	.eyebrow {
 		font-family: 'DM Mono', monospace;
 		font-size: 11px;
-		letter-spacing: .18em;
+		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--amber);
 		margin-bottom: 6px;
@@ -188,15 +203,19 @@
 		font-family: 'DM Mono', monospace;
 		font-size: 11px;
 		color: var(--muted);
-		letter-spacing: .04em;
+		letter-spacing: 0.04em;
 	}
 
 	/* ── SECTION ── */
-	.section { display: flex; flex-direction: column; gap: 14px; }
+	.section {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
 	.section-label {
 		font-family: 'DM Mono', monospace;
 		font-size: 10px;
-		letter-spacing: .18em;
+		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: var(--amber);
 	}
@@ -209,22 +228,24 @@
 	}
 	.kpi-card {
 		background: var(--bark);
-		border: 1px solid rgba(212,146,42,.12);
+		border: 1px solid rgba(212, 146, 42, 0.12);
 		border-radius: 8px;
 		padding: 20px 18px;
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
-		transition: border-color .2s, transform .2s;
+		transition:
+			border-color 0.2s,
+			transform 0.2s;
 	}
 	.kpi-card:hover {
-		border-color: rgba(212,146,42,.3);
+		border-color: rgba(212, 146, 42, 0.3);
 		transform: translateY(-2px);
 	}
 	.kpi-label {
 		font-family: 'DM Mono', monospace;
 		font-size: 10px;
-		letter-spacing: .1em;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--muted);
 	}
@@ -239,8 +260,12 @@
 		font-family: 'DM Mono', monospace;
 		font-size: 11px;
 	}
-	.kpi-delta.up   { color: var(--green); }
-	.kpi-delta.down { color: var(--red);   }
+	.kpi-delta.up {
+		color: var(--green);
+	}
+	.kpi-delta.down {
+		color: var(--red);
+	}
 
 	/* ── MID GRID ── */
 	.mid-grid {
@@ -253,7 +278,7 @@
 	/* ── CHART ── */
 	.chart-card {
 		background: var(--bark);
-		border: 1px solid rgba(212,146,42,.12);
+		border: 1px solid rgba(212, 146, 42, 0.12);
 		border-radius: 8px;
 		padding: 22px 20px 16px;
 		display: flex;
@@ -288,9 +313,13 @@
 		border-radius: 3px 3px 0 0;
 		transform: scaleY(0);
 		transform-origin: bottom;
-		animation: growBar .7s cubic-bezier(.22,.68,0,1.2) forwards;
+		animation: growBar 0.7s cubic-bezier(0.22, 0.68, 0, 1.2) forwards;
 	}
-	@keyframes growBar { to { transform: scaleY(1); } }
+	@keyframes growBar {
+		to {
+			transform: scaleY(1);
+		}
+	}
 	.bar-label {
 		font-family: 'DM Mono', monospace;
 		font-size: 9px;
@@ -299,14 +328,14 @@
 	.chart-note {
 		font-family: 'DM Mono', monospace;
 		font-size: 9px;
-		color: rgba(138,122,98,.4);
+		color: rgba(138, 122, 98, 0.4);
 		text-align: right;
 	}
 
 	/* ── RECOMMENDATIONS ── */
 	.reco-card {
 		background: var(--bark);
-		border: 1px solid rgba(212,146,42,.12);
+		border: 1px solid rgba(212, 146, 42, 0.12);
 		border-radius: 8px;
 		padding: 22px 20px;
 		display: flex;
@@ -323,11 +352,15 @@
 		align-items: flex-start;
 		gap: 12px;
 		padding: 13px;
-		background: rgba(212,146,42,.04);
-		border: 1px solid rgba(212,146,42,.1);
+		background: rgba(212, 146, 42, 0.04);
+		border: 1px solid rgba(212, 146, 42, 0.1);
 		border-radius: 6px;
 	}
-	.reco-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+	.reco-icon {
+		font-size: 15px;
+		flex-shrink: 0;
+		margin-top: 1px;
+	}
 	.reco-text {
 		font-size: 13px;
 		line-height: 1.6;
@@ -342,7 +375,7 @@
 	}
 	.link-card {
 		background: var(--bark);
-		border: 1px solid rgba(212,146,42,.12);
+		border: 1px solid rgba(212, 146, 42, 0.12);
 		border-radius: 8px;
 		padding: 22px 20px;
 		cursor: pointer;
@@ -350,13 +383,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
-		transition: border-color .2s, transform .2s, background .2s;
+		transition:
+			border-color 0.2s,
+			transform 0.2s,
+			background 0.2s;
 		width: 100%;
 		color: inherit;
 	}
 	.link-card:hover {
-		border-color: rgba(212,146,42,.35);
-		background: rgba(212,146,42,.04);
+		border-color: rgba(212, 146, 42, 0.35);
+		background: rgba(212, 146, 42, 0.04);
 		transform: translateY(-3px);
 	}
 	.link-top {
@@ -364,15 +400,17 @@
 		align-items: center;
 		justify-content: space-between;
 	}
-	.link-icon { font-size: 20px; }
+	.link-icon {
+		font-size: 20px;
+	}
 	.link-tag {
 		font-family: 'DM Mono', monospace;
 		font-size: 9px;
-		letter-spacing: .1em;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		color: var(--amber);
-		background: rgba(212,146,42,.1);
-		border: 1px solid rgba(212,146,42,.2);
+		background: rgba(212, 146, 42, 0.1);
+		border: 1px solid rgba(212, 146, 42, 0.2);
 		padding: 3px 8px;
 		border-radius: 3px;
 	}
@@ -391,12 +429,16 @@
 	.link-arrow {
 		font-size: 17px;
 		color: var(--rust);
-		transition: transform .2s;
+		transition: transform 0.2s;
 	}
-	.link-card:hover .link-arrow { transform: translateX(4px); }
+	.link-card:hover .link-arrow {
+		transform: translateX(4px);
+	}
 
 	/* ── RESPONSIVE ── */
 	@media (max-width: 700px) {
-		.mid-grid { grid-template-columns: 1fr !important; }
+		.mid-grid {
+			grid-template-columns: 1fr !important;
+		}
 	}
 </style>
