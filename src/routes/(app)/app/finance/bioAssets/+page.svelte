@@ -4,17 +4,18 @@
 	import PhCow from '~icons/ph/cow';
 	import AddBioAssetModal from './AddBioAssetModal.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import { getBioAssets } from './bio.remote';
 
-	let { data } = $props();
+	const assets = (await getBioAssets()).assets;
 
 	const cattlePrice = livePriceMap['cattle'];
 
-	type Asset = (typeof data.assets)[number];
+	type Asset = (typeof assets)[number];
 
 	let showingAddBioAsset = $state(false);
 </script>
 
-<div class="page-container">
+<div class="container">
 	<div class="header">
 		<p>Manage your livestock and other biological assets.</p>
 		<Button
@@ -22,7 +23,7 @@
 				showingAddBioAsset = true;
 			}}
 		>
-			Add Asset
+			Add Bio Asset
 		</Button>
 	</div>
 
@@ -56,7 +57,7 @@
 		{/snippet}
 
 		<DataTable
-			data={data.assets}
+			data={assets}
 			columns={[
 				{ key: 'name', label: 'Name', cell: cellName },
 				{ key: 'type', label: 'Type', cell: typeCell },
@@ -76,7 +77,7 @@
 		gap: 0.5rem;
 	}
 
-	.page-container {
+	.container {
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -91,8 +92,6 @@
 
 	p {
 		color: var(--color);
-		opacity: 0.7;
-		font-size: 1.1rem;
 	}
 
 	.icon {
@@ -104,8 +103,7 @@
 	}
 
 	.value-cell {
-		font-family: monospace;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		color: var(--accent-alt);
 	}
 </style>

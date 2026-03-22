@@ -1,6 +1,4 @@
 <script lang="ts">
-	import PageTabs from './PageTabs.svelte';
-
 	// ── TYPES ──────────────────────────────────────────────
 	type EntryType = 'income' | 'expense';
 

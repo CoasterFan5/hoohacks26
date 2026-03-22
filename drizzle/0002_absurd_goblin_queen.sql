@@ -1,0 +1,2 @@
+ALTER TABLE "assetCategory" ADD COLUMN "owner" text NOT NULL;--> statement-breakpoint
+ALTER TABLE "assetCategory" ADD CONSTRAINT "assetCategory_owner_users_id_fk" FOREIGN KEY ("owner") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;

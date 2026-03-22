@@ -1,7 +1,9 @@
-import { command, getRequestEvent } from '$app/server';
+import { command, getRequestEvent, query } from '$app/server';
 import { db } from '$lib/server/db';
 import { liveAssetsTable } from '$lib/server/db/schema';
 import { validateSession } from '$lib/server/validateSession';
+import { redirect } from '@sveltejs/kit';
+import { eq } from 'drizzle-orm';
 import z from 'zod';
 
 export const addBioAsset = command(
@@ -24,3 +26,18 @@ export const addBioAsset = command(
 		});
 	}
 );
+
+export const getBioAssets = query(async () => {
+	const event = getRequestEvent();
+	const u = await validateSession(event.cookies);
+
+	if (!u) {
+		throw redirect(303, '/auth/login');
+	}
+
+	const assets = await db.select().from(liveAssetsTable).where(eq(liveAssetsTable.owner, u.id));
+
+	return {
+		assets
+	};
+});

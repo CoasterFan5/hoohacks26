@@ -39,3 +39,28 @@ export const liveAssetsTable = pgTable('liveAssets', {
 	type: liveAssetEnum().notNull(),
 	externalId: text()
 });
+
+export const assetCategoryTable = pgTable('assetCategory', {
+	id: text().notNull().primaryKey().$defaultFn(newId),
+	owner: text()
+		.notNull()
+		.references(() => usersTable.id),
+	name: text().notNull()
+});
+
+export const assetsTable = pgTable('assetsTable', {
+	id: text().notNull().primaryKey().$defaultFn(newId),
+	owner: text()
+		.notNull()
+		.references(() => usersTable.id),
+	created: timestamp()
+		.notNull()
+		.$defaultFn(() => new Date()),
+	valuation: integer().notNull(),
+	name: text().notNull(),
+	categoryId: text()
+		.notNull()
+		.references(() => assetCategoryTable.id, {
+			onDelete: 'cascade'
+		})
+});

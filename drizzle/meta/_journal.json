@@ -8,6 +8,27 @@
       "when": 1774152996636,
       "tag": "0000_public_luckman",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774165491918,
+      "tag": "0001_hot_mojo",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774181784768,
+      "tag": "0002_absurd_goblin_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1774185585003,
+      "tag": "0003_cool_black_tarantula",
+      "breakpoints": true
     }
   ]
 }

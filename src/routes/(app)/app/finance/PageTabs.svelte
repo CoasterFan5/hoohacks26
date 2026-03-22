@@ -1,19 +1,10 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-
-	let activeTab = $state<'overview' | 'income' | 'expenses' | 'herd' | 'projections'>('overview');
-
-	const tabs = [
-		{ key: 'overview', label: 'Overview' },
-		{ key: 'income', label: 'Income' },
-		{ key: 'expenses', label: 'Expenses' },
-		{ key: 'herd', label: 'Herd Value' },
-		{ key: 'projections', label: 'Projections' }
-	] as const;
 </script>
 
 <div class="tabs">
 	<a href={resolve('/app/finance')} class="tab" class:active={true}>Overview</a>
+	<a href={resolve('/app/finance/assets')} class="tab">Assets</a>
 	<a href={resolve('/app/finance/bioAssets')} class="tab"> Bio Assets </a>
 </div>
 
