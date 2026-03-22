@@ -1,20 +1,28 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable.svelte';
 	import { livePriceMap } from '$lib/liveAsset/stores';
-	import PhCow from '~icons/ph/cow';
 	import AddBioAssetModal from './AddBioAssetModal.svelte';
+	import { getBioAssets } from './bio.remote';
 	import Button from '$lib/components/Button.svelte';
+	import { iconMap } from '$lib/liveAsset/icons';
 
-	let { data } = $props();
+	const assets = (await getBioAssets()).assets;
 
 	const cattlePrice = livePriceMap['cattle'];
+	const chickenPrice = livePriceMap['chicken'];
+	const carrotPrice = livePriceMap['carrot'];
+	const currentPrices = $derived({
+		cattle: $cattlePrice,
+		chicken: $chickenPrice,
+		carrot: $carrotPrice
+	});
 
-	type Asset = (typeof data.assets)[number];
+	type Asset = (typeof assets)[number];
 
 	let showingAddBioAsset = $state(false);
 </script>
 
-<div class="page-container">
+<div class="container">
 	<div class="header">
 		<p>Manage your livestock and other biological assets.</p>
 		<Button
@@ -22,7 +30,7 @@
 				showingAddBioAsset = true;
 			}}
 		>
-			Add Asset
+			Add Bio Asset
 		</Button>
 	</div>
 
@@ -30,10 +38,11 @@
 
 	<main>
 		{#snippet cellName(row: Asset)}
+			{@const Icon = iconMap[row.type]}
 			<span class="nameCell">
 				<span class="icon">
-					{#if row.type === 'cattle'}
-						<PhCow />
+					{#if Icon}
+						<Icon />
 					{/if}
 				</span>
 
@@ -46,9 +55,10 @@
 		{/snippet}
 
 		{#snippet valueCell(row: Asset)}
+			{@const price = currentPrices[row.type as keyof typeof currentPrices]}
 			<span class="value-cell">
-				{#if row.type === 'cattle' && cattlePrice}
-					${(row.mass * $cattlePrice).toFixed(2)}
+				{#if price}
+					${(row.mass * price).toFixed(2)}
 				{:else}
 					N/A
 				{/if}
@@ -56,7 +66,7 @@
 		{/snippet}
 
 		<DataTable
-			data={data.assets}
+			data={assets}
 			columns={[
 				{ key: 'name', label: 'Name', cell: cellName },
 				{ key: 'type', label: 'Type', cell: typeCell },
@@ -76,7 +86,7 @@
 		gap: 0.5rem;
 	}
 
-	.page-container {
+	.container {
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -91,8 +101,6 @@
 
 	p {
 		color: var(--color);
-		opacity: 0.7;
-		font-size: 1.1rem;
 	}
 
 	.icon {
@@ -104,8 +112,7 @@
 	}
 
 	.value-cell {
-		font-family: monospace;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		color: var(--accent-alt);
 	}
 </style>

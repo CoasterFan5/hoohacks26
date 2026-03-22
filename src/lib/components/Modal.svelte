@@ -51,6 +51,7 @@
 	.modal {
 		box-sizing: border-box;
 		background: var(--background);
+		border: 1px solid var(--border);
 		padding: 1rem;
 		border-radius: 0.5rem;
 		max-width: 20rem;

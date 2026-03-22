@@ -13,12 +13,6 @@
 	import Footer from './Footer.svelte';
 
 	let { children } = $props();
-
-	import { initializeAuth } from '$lib/stores/auth';
-
-	$effect(() => {
-		initializeAuth();
-	});
 </script>
 
 <svelte:head>
@@ -51,7 +45,7 @@
 
 	:global(*) {
 		font-family: 'Roboto Variable', sans-serif;
-		--background: #110b05;
+		--background: #1c1208;
 
 		--color: #f1f1f1;
 		--error: #d4922a;
