@@ -19,7 +19,6 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.0.2",
 		"@eslint/js": "^9.39.2",
-		"@iconify/json": "^2.2.453",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
@@ -49,6 +48,9 @@
 		"@auth0/auth0-spa-js": "^2.18.0",
 		"@dotenvx/dotenvx": "^1.57.1",
 		"@fontsource-variable/roboto": "^5.2.10",
+		"@fontsource/dm-mono": "^5.2.7",
+		"@fontsource/dm-sans": "^5.2.8",
+		"@fontsource/lora": "^5.2.8",
 		"@iconify-json/ph": "^1.2.2",
 		"@paralleldrive/cuid2": "^3.3.0",
 		"@sveltejs/adapter-node": "^5.5.4",
