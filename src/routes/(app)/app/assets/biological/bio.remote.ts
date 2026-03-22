@@ -4,7 +4,7 @@ import { liveAssetsTable } from '$lib/server/db/schema';
 import { validateSession } from '$lib/server/validateSession';
 import z from 'zod';
 
-export const createItem = command(
+export const addBioAsset = command(
 	z.object({
 		name: z.string(),
 		mass: z.number()
