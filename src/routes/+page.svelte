@@ -1,6 +1,8 @@
 <script>
-  let email = '';
-  let submitted = false;
+  import { slide } from 'svelte/transition';
+
+  let email = $state('');
+  let submitted = $state(false);
 
   function handleSignup() {
     if (email.trim()) {
@@ -54,7 +56,7 @@
     { q: 'When is Moonance available?', a: "We're in active development. Sign up below to get early access and help shape the product." },
   ];
 
-  let openFaq = null;
+  let openFaq = $state(null);
   function toggleFaq(i) {
     openFaq = openFaq === i ? null : i;
   }
@@ -272,7 +274,7 @@
             <span class="faq-arrow">{openFaq === i ? '−' : '+'}</span>
           </button>
           {#if openFaq === i}
-            <div class="faq-a">{item.a}</div>
+            <div class="faq-a" transition:slide={{ duration: 250 }}>{item.a}</div>
           {/if}
         </div>
       {/each}
@@ -295,7 +297,7 @@
           bind:value={email}
           on:keydown={(e) => e.key === 'Enter' && handleSignup()}
         />
-        <button class="btn-primary" on:click={handleSignup}>Request Access</button>
+        <a href="/auth/login" class="btn-primary">Request Access</a>
       </div>
     {:else}
       <div class="submitted">✅ You're on the list. We'll be in touch soon.</div>
