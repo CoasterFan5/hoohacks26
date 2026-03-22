@@ -1,0 +1,2 @@
+ALTER TABLE "liveAssets" ADD COLUMN "owner" text NOT NULL;--> statement-breakpoint
+ALTER TABLE "liveAssets" ADD CONSTRAINT "liveAssets_owner_users_id_fk" FOREIGN KEY ("owner") REFERENCES "public"."users"("id") ON DELETE no action ON UPDATE no action;

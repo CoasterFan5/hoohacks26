@@ -15,6 +15,20 @@
       "when": 1774131769115,
       "tag": "0001_overconfident_luke_cage",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774149014968,
+      "tag": "0002_spicy_hedge_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1774149931768,
+      "tag": "0003_bored_sentry",
+      "breakpoints": true
     }
   ]
 }
