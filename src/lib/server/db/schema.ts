@@ -2,7 +2,7 @@ import { integer, pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 import { createId } from '@paralleldrive/cuid2';
 import { liveAssetList } from '$lib/liveAsset/liveAssetList';
 
-const liveAssetEnum = pgEnum('liveAssetType', liveAssetList);
+const liveAssetEnum = pgEnum('text', liveAssetList);
 
 const newId = () => {
 	return createId();
