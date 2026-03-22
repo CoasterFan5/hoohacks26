@@ -82,7 +82,7 @@
       <a href="#how-it-works">How it works</a>
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
-      <a href="/login" class="btn-nav">Sign In</a>
+      <a href="/auth/login" class="btn-nav">Sign In</a>
     </div>
   </div>
 </nav>

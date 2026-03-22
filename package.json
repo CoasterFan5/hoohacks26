@@ -16,6 +16,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.0.2",
 		"@eslint/js": "^9.39.2",
+		"@iconify/json": "^2.2.453",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
@@ -33,6 +34,7 @@
 		"tsx": "^4.21.0",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.54.0",
+		"unplugin-icons": "^23.0.1",
 		"vite": "^7.3.1"
 	},
 	"pnpm": {
@@ -47,7 +49,6 @@
 		"dotenv": "^17.3.1",
 		"drizzle-orm": "^0.45.1",
 		"pg": "^8.20.0",
-		"unplugin-icons": "^23.0.1",
 		"zod": "^4.3.6"
 	}
 }
