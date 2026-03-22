@@ -1,9 +1,4 @@
 <script lang="ts">
-	function fmt(n: number) {
-		return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-	}
-
-	// Projection placeholders (6 months forward)
 	const projMonths = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'];
 	const projIncome = [22_000, 18_500, 15_200, 16_800, 24_400, 31_000];
 	const projExpense = [10_200, 9_800, 8_900, 9_400, 11_100, 13_200];
@@ -32,7 +27,15 @@
 			text: 'Your projected Q2 margin of 35% is above regional average. Maintaining current herd size through spring should sustain this performance.'
 		}
 	];
+
+	function fmt(n: number) {
+		return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+	}
 </script>
+
+<svelte:head>
+	<title>Projections — Moonance</title>
+</svelte:head>
 
 <div class="card">
 	<div class="section-label">6-Month Profitability Projection</div>
@@ -87,7 +90,6 @@
 			{/each}
 		</tbody>
 	</table>
-
 </div>
 
 <div class="card">
@@ -106,7 +108,23 @@
 </div>
 
 <style>
-	/* ── PROJECTIONS ── */
+	.section-label {
+		font-family: 'DM Mono', monospace;
+		font-size: 10px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--amber);
+	}
+	.card {
+		background: var(--bark);
+		border: 1px solid rgba(212, 146, 42, 0.12);
+		border-radius: 8px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		margin-bottom: 20px;
+	}
 	.proj-chart {
 		display: flex;
 		align-items: flex-end;
@@ -159,6 +177,7 @@
 		align-items: center;
 		gap: 16px;
 		font-size: 12px;
+
 		color: var(--muted);
 	}
 	.legend-dot {
@@ -173,17 +192,6 @@
 	.expense-dot {
 		background: var(--rust);
 	}
-	.proj-disclaimer {
-		font-size: 11px;
-		color: var(--muted);
-		background: rgba(212, 146, 42, 0.04);
-		border: 1px solid rgba(212, 146, 42, 0.1);
-		border-radius: 5px;
-		padding: 10px 14px;
-		line-height: 1.6;
-	}
-
-	/* ── LEDGER ── */
 	.ledger {
 		width: 100%;
 		border-collapse: collapse;
@@ -210,8 +218,6 @@
 	.ledger tr:hover td {
 		background: rgba(212, 146, 42, 0.02);
 	}
-
-	/* ── RECOMMENDATIONS ── */
 	.reco-list {
 		display: flex;
 		flex-direction: column;
@@ -264,5 +270,22 @@
 		font-size: 13px;
 		color: var(--muted);
 		line-height: 1.65;
+	}
+	.green {
+		color: var(--green) !important;
+	}
+	.red {
+		color: var(--red) !important;
+	}
+	.muted {
+		color: var(--muted);
+	}
+	.mono {
+		font-family: 'DM Mono', monospace;
+		font-size: 13px;
+	}
+	.bold {
+		font-weight: 600;
+		color: var(--cream);
 	}
 </style>

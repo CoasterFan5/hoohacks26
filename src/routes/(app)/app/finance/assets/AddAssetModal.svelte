@@ -103,7 +103,7 @@
 <Modal bind:showing={showingAddCategory}>
 	<InputRow>
 		<FormHeader>Add Category</FormHeader>
-		<TextInput bind:value={newCategory.name} label="Name" placeholder="Vehicals" />
+		<TextInput bind:value={newCategory.name} label="Name" placeholder="Vehicles" />
 		<FormButton onclick={addCategory}>Create</FormButton>
 	</InputRow>
 </Modal>

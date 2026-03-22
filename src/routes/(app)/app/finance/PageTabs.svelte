@@ -8,6 +8,21 @@
 		>Overview</a
 	>
 	<a
+		href={resolve('/app/finance/income')}
+		class:active={page.url.pathname == '/app/finance/income'}
+		class="tab">Income</a
+	>
+	<a
+		href={resolve('/app/finance/expenses')}
+		class:active={page.url.pathname == '/app/finance/expenses'}
+		class="tab">Expenses</a
+	>
+	<a
+		href={resolve('/app/finance/projections')}
+		class:active={page.url.pathname == '/app/finance/projections'}
+		class="tab">Projections</a
+	>
+	<a
 		href={resolve('/app/finance/assets')}
 		class:active={page.url.pathname == '/app/finance/assets'}
 		class="tab">Assets</a

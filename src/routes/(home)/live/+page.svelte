@@ -120,8 +120,7 @@
 	</div>
 </footer>
 
-<style>
-	/* ── BASE STYLES REUSED FROM HOME PAGE ── */
+<style lang="scss">
 	:global(*, *::before, *::after) {
 		box-sizing: border-box;
 		margin: 0;
@@ -306,23 +305,6 @@
 	.price-card {
 		background: var(--bark);
 		border: 1px solid rgba(212, 146, 42, 0.12);
-		border-radius: 8
-
-			0
-			0   0
-
-		   0
-
-
-
-
-
-
-
-			.api-gateway {
-		padding: 100px 0;
-		background: var(--earth);
-		border-top: 1px solid rgba(212, 146, 42, 0.1);
 	}
 	.api-inner {
 		display: flex;
@@ -344,42 +326,12 @@
 		color: var(--amber);
 		font-family: 'DM Mono', monospace;
 	}
-	.api-cta {
-		margin-top: 32px;
-	}
 
-
-
-	1c1208   0
-			   0
-			   02e1e0a
-
-		   0	.dash-dot {
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-	}
 	.dash-dot.r {
 		background: #c44040;
 	}
 	.dash-dot.y {
 		background: var(--amber);
-	}
-	.dash-dot.g {
-		background: var(--sage);
-	}
-
-
-
-
-		   0
-
-
-
-			.footer-logo .logo-moo {
-		font-family: 'Lora', serif;
-		font-size: 18px;
-		color: var(--wheat);
 	}
 	.footer-logo .logo-nance {
 		font-family: 'Lora', serif;
@@ -411,3 +363,4 @@
 		color: rgba(138, 122, 98, 0.5);
 		font-family: 'DM Mono', monospace;
 	}
+</style>
