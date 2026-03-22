@@ -49,6 +49,7 @@
 		"@fontsource-variable/roboto": "^5.2.10",
 		"@iconify-json/ph": "^1.2.2",
 		"@paralleldrive/cuid2": "^3.3.0",
+		"@sveltejs/adapter-node": "^5.5.4",
 		"dotenv": "^17.3.1",
 		"drizzle-orm": "^0.45.1",
 		"pg": "^8.20.0",
