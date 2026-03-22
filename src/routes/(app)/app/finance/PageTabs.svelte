@@ -1,11 +1,24 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 </script>
 
 <div class="tabs">
-	<a href={resolve('/app/finance')} class="tab" class:active={true}>Overview</a>
-	<a href={resolve('/app/finance/assets')} class="tab">Assets</a>
-	<a href={resolve('/app/finance/bioAssets')} class="tab"> Bio Assets </a>
+	<a href={resolve('/app/finance')} class="tab" class:active={page.url.pathname == '/app/finance'}
+		>Overview</a
+	>
+	<a
+		href={resolve('/app/finance/assets')}
+		class:active={page.url.pathname == '/app/finance/assets'}
+		class="tab">Assets</a
+	>
+	<a
+		href={resolve('/app/finance/bioAssets')}
+		class:active={page.url.pathname == '/app/finance/bioAssets'}
+		class="tab"
+	>
+		Bio Assets
+	</a>
 </div>
 
 <style>
