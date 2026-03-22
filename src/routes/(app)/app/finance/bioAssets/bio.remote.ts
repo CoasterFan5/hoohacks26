@@ -5,11 +5,13 @@ import { validateSession } from '$lib/server/validateSession';
 import { redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import z from 'zod';
+import { liveAssetList } from '$lib/liveAsset/liveAssetList';
 
 export const addBioAsset = command(
 	z.object({
 		name: z.string(),
-		mass: z.number()
+		mass: z.number(),
+		type: z.enum(liveAssetList)
 	}),
 	async (params) => {
 		const r = getRequestEvent();
@@ -22,7 +24,7 @@ export const addBioAsset = command(
 			owner: user.id,
 			mass: params.mass,
 			name: params.name,
-			type: 'cattle'
+			type: params.type
 		});
 	}
 );

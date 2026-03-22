@@ -1,1 +1,1 @@
-export const liveAssetList = ['cattle'] as const;
+export const liveAssetList = ['cattle', 'chicken'] as const;

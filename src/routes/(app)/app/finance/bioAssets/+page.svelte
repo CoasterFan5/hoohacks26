@@ -2,13 +2,26 @@
 	import DataTable from '$lib/components/DataTable.svelte';
 	import { livePriceMap } from '$lib/liveAsset/stores';
 	import PhCow from '~icons/ph/cow';
+	import EggIcon from '~icons/ph/egg';
 	import AddBioAssetModal from './AddBioAssetModal.svelte';
-	import Button from '$lib/components/Button.svelte';
+	import { liveAssetList } from '$lib/liveAsset/liveAssetList';
+	import type { Component } from 'svelte';
 	import { getBioAssets } from './bio.remote';
+	import Button from '$lib/components/Button.svelte';
+
+	const iconMap: Record<(typeof liveAssetList)[number], Component> = {
+		cattle: PhCow,
+		chicken: EggIcon
+	};
 
 	const assets = (await getBioAssets()).assets;
 
 	const cattlePrice = livePriceMap['cattle'];
+	const chickenPrice = livePriceMap['chicken'];
+	const currentPrices = $derived({
+		cattle: $cattlePrice,
+		chicken: $chickenPrice
+	});
 
 	type Asset = (typeof assets)[number];
 
@@ -31,10 +44,11 @@
 
 	<main>
 		{#snippet cellName(row: Asset)}
+			{@const Icon = iconMap[row.type]}
 			<span class="nameCell">
 				<span class="icon">
-					{#if row.type === 'cattle'}
-						<PhCow />
+					{#if Icon}
+						<Icon />
 					{/if}
 				</span>
 
@@ -47,9 +61,10 @@
 		{/snippet}
 
 		{#snippet valueCell(row: Asset)}
+			{@const price = currentPrices[row.type as keyof typeof currentPrices]}
 			<span class="value-cell">
-				{#if row.type === 'cattle' && cattlePrice}
-					${(row.mass * $cattlePrice).toFixed(2)}
+				{#if price}
+					${(row.mass * price).toFixed(2)}
 				{:else}
 					N/A
 				{/if}
