@@ -28,7 +28,7 @@
 
 	:global(*) {
 		font-family: 'Roboto Variable', sans-serif;
-		--background: #110b05;
+		--background: #1c1208;
 
 		--color: #f1f1f1;
 		--error: #d4922a;
