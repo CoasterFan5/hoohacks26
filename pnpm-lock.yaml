@@ -652,13 +652,11 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-<<<<<<< HEAD
-  '@iconify/json@2.2.453':
-    resolution: {integrity: sha512-LL3avJyZUFtB/Ts1WbpunFZ58XnodcQn0xMLQbm9gxuuZNpnt2D89n+CstNHpqheynDz+nZVSSvKko1bFXBOTA==}
-=======
   '@iconify-json/ph@1.2.2':
     resolution: {integrity: sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw==}
->>>>>>> f9517a22abb03d988d4c5a62e40e7215299f1423
+
+  '@iconify/json@2.2.453':
+    resolution: {integrity: sha512-LL3avJyZUFtB/Ts1WbpunFZ58XnodcQn0xMLQbm9gxuuZNpnt2D89n+CstNHpqheynDz+nZVSSvKko1bFXBOTA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2318,16 +2316,14 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-<<<<<<< HEAD
+  '@iconify-json/ph@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/json@2.2.453':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
-=======
-  '@iconify-json/ph@1.2.2':
-    dependencies:
-      '@iconify/types': 2.0.0
->>>>>>> f9517a22abb03d988d4c5a62e40e7215299f1423
 
   '@iconify/types@2.0.0': {}
 
