@@ -306,20 +306,16 @@
 	.price-card {
 		background: var(--bark);
 		border: 1px solid rgba(212, 146, 42, 0.12);
-		border-radius: 8
+		border-radius: 8px;
+		padding: 28px;
+		transition: border-color 0.2s;
+	}
+	.price-card:hover {
+		border-color: rgba(212, 146, 42, 0.3);
+	}
 
-			0
-			0   0
-
-		   0
-
-
-
-
-
-
-
-			.api-gateway {
+	/* ── API GATEWAY ── */
+	.api-gateway {
 		padding: 100px 0;
 		background: var(--earth);
 		border-top: 1px solid rgba(212, 146, 42, 0.1);
@@ -347,14 +343,41 @@
 	.api-cta {
 		margin-top: 32px;
 	}
-
-
-
-	1c1208   0
-			   0
-			   02e1e0a
-
-		   0	.dash-dot {
+	.api-visual {
+		flex: 1;
+		min-width: 300px;
+	}
+	.code-window {
+		background: var(--soil);
+		border: 1px solid rgba(212, 146, 42, 0.15);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.code-bar {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 16px;
+		background: var(--earth);
+		border-bottom: 1px solid rgba(212, 146, 42, 0.1);
+	}
+	.dash-label {
+		font-family: 'DM Mono', monospace;
+		font-size: 11px;
+		color: var(--muted);
+		margin-left: 8px;
+	}
+	.code-content {
+		padding: 24px;
+	}
+	.code-content pre {
+		font-family: 'DM Mono', monospace;
+		font-size: 13px;
+		color: var(--wheat);
+		line-height: 1.7;
+		white-space: pre-wrap;
+	}
+	.dash-dot {
 		width: 10px;
 		height: 10px;
 		border-radius: 50%;
@@ -369,14 +392,20 @@
 		background: var(--sage);
 	}
 
-
-
-
-		   0
-
-
-
-			.footer-logo .logo-moo {
+	/* ── FOOTER ── */
+	footer {
+		background: var(--soil);
+		border-top: 1px solid rgba(212, 146, 42, 0.08);
+		padding: 40px 0;
+	}
+	.footer-inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 32px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.footer-logo .logo-moo {
 		font-family: 'Lora', serif;
 		font-size: 18px;
 		color: var(--wheat);
