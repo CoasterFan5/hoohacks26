@@ -3,6 +3,7 @@
 	import { livePriceMap } from '$lib/liveAsset/stores';
 	import PhCow from '~icons/ph/cow';
 	import AddBioAssetModal from './AddBioAssetModal.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	let { data } = $props();
 
@@ -14,27 +15,29 @@
 </script>
 
 <div class="page-container">
-	<header>
-		<h1>Biological Assets</h1>
+	<div class="header">
 		<p>Manage your livestock and other biological assets.</p>
-	</header>
-
-	<button
-		onclick={() => {
-			showingAddBioAsset = true;
-		}}
-	>
-		Add Asset
-	</button>
+		<Button
+			onclick={() => {
+				showingAddBioAsset = true;
+			}}
+		>
+			Add Asset
+		</Button>
+	</div>
 
 	<AddBioAssetModal bind:showing={showingAddBioAsset} />
 
 	<main>
-		{#snippet iconCell(row: Asset)}
-			<span class="icon-cell">
-				{#if row.type === 'cattle'}
-					<PhCow />
-				{/if}
+		{#snippet cellName(row: Asset)}
+			<span class="nameCell">
+				<span class="icon">
+					{#if row.type === 'cattle'}
+						<PhCow />
+					{/if}
+				</span>
+
+				{row.name}
 			</span>
 		{/snippet}
 
@@ -55,8 +58,7 @@
 		<DataTable
 			data={data.assets}
 			columns={[
-				{ key: 'icon', label: 'Icon', align: 'center', cell: iconCell },
-				{ key: 'name', label: 'Name' },
+				{ key: 'name', label: 'Name', cell: cellName },
 				{ key: 'type', label: 'Type', cell: typeCell },
 				{ key: 'mass', label: 'Mass (kg)' },
 				{ key: 'value', label: 'Estimated Value', align: 'right', cell: valueCell },
@@ -67,20 +69,24 @@
 </div>
 
 <style>
+	.nameCell {
+		display: flex;
+		align-items: start;
+		justify-content: start;
+		gap: 0.5rem;
+	}
+
 	.page-container {
-		padding: 2rem;
-		max-width: 1200px;
+		width: 100%;
 		margin: 0 auto;
 	}
 
-	header {
-		margin-bottom: 2rem;
-	}
-
-	h1 {
-		font-size: 2rem;
-		color: var(--color);
-		margin-bottom: 0.5rem;
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 1rem;
 	}
 
 	p {
@@ -89,12 +95,8 @@
 		font-size: 1.1rem;
 	}
 
-	.icon-cell {
-		font-size: 1.5rem;
+	.icon {
 		color: var(--accent);
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	.capitalize {

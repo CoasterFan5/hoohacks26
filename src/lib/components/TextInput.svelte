@@ -56,6 +56,6 @@
 	}
 
 	.validatorError {
-		color: var(--error);
+		color: var(--red);
 	}
 </style>

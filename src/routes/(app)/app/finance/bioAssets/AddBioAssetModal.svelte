@@ -20,10 +20,16 @@
 		addBioAsset({
 			name: name,
 			mass: parseInt(massString)
-		}).catch((e) => {
-			invalidateAll();
-			console.error(e);
-		});
+		})
+			.catch((e) => {
+				invalidateAll();
+				console.error(e);
+			})
+			.finally(() => {
+				showing = false;
+
+				invalidateAll();
+			});
 	};
 </script>
 
