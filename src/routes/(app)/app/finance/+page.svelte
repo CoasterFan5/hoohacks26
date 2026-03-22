@@ -270,10 +270,6 @@
 	</div>
 
 	<!-- Placeholder notice -->
-	<div class="notice">
-		⚠ All figures shown are placeholder values. Log income and expenses using the tabs above to see
-		your real numbers.
-	</div>
 
 	<!-- ════════════════════════════════════ -->
 	<!--  INCOME                             -->
@@ -620,10 +616,6 @@
 				{/each}
 			</tbody>
 		</table>
-		<div class="proj-disclaimer">
-			⚠ Placeholder data — connect your backend to generate real forecasts based on your logged
-			income and expenses.
-		</div>
 	</div>
 
 	<div class="card">
