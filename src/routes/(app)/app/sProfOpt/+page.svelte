@@ -606,21 +606,6 @@
 </div>
 
 <style>
-	/* ── TOKENS ── */
-	:root {
-		--soil: #0f0a04;
-		--earth: #1c1208;
-		--bark: #2e1e0a;
-		--rust: #c4541a;
-		--amber: #d4922a;
-		--wheat: #e8c87a;
-		--cream: #f0e8d5;
-		--muted: #8a7a62;
-		--sage: #6b8f5e;
-		--green: #5a9e5a;
-		--red: #c44040;
-	}
-
 	/* ── PAGE ── */
 	.page {
 		display: flex;
