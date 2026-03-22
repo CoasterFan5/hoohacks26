@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { invalidateAll } from '$app/navigation';
 	import FormButton from '$lib/components/FormButton.svelte';
 	import FormHeader from '$lib/components/FormHeader.svelte';
 	import InputRow from '$lib/components/InputRow.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import TextInput from '$lib/components/TextInput.svelte';
-	import { addBioAsset } from './bio.remote';
 
 	let {
 		showing = $bindable(false)
@@ -17,19 +15,7 @@
 	let massString = $state('');
 
 	const create = async () => {
-		addBioAsset({
-			name: name,
-			mass: parseInt(massString)
-		})
-			.catch((e) => {
-				invalidateAll();
-				console.error(e);
-			})
-			.finally(() => {
-				showing = false;
-
-				invalidateAll();
-			});
+		showing = false;
 	};
 </script>
 
