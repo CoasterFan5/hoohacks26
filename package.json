@@ -7,6 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"start": "node build",
 		"db:migrate": "dotenvx run -- npx drizzle-kit migrate",
 		"db:generate": "dotenvx run -- npx drizzle-kit generate",
 		"db:studio": "dotenvx run -- npx drizzle-kit studio",
