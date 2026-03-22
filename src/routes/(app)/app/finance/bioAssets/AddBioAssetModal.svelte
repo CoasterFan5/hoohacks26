@@ -6,7 +6,7 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import TextInput from '$lib/components/TextInput.svelte';
 	import { addBioAsset } from './bio.remote';
-	import { liveAssetList } from '$lib/liveAsset/liveAssetList';
+	import { liveAssetList, type LiveAssetType } from '$lib/liveAsset/liveAssetList';
 
 	let {
 		showing = $bindable(false)
@@ -16,7 +16,7 @@
 
 	let name = $state('');
 	let massString = $state('');
-	let type = $state<(typeof liveAssetList)[number]>('cattle');
+	let type = $state<LiveAssetType>('cattle');
 
 	const create = async () => {
 		addBioAsset({

@@ -1,5 +1,5 @@
 import { writable, type Writable } from 'svelte/store';
-import { liveAssetList } from './liveAssetList';
+import type { LiveAssetType } from './liveAssetList';
 
 // as a cheeky little hack, we will just fluctuate prices randomly by +- 0.01 every second
 
@@ -15,7 +15,8 @@ setInterval(() => {
 	}
 }, 10_000);
 
-export const livePriceMap: Record<(typeof liveAssetList)[number], Writable<number>> = {
+export const livePriceMap: Record<LiveAssetType, Writable<number>> = {
 	cattle: writable(5.6),
-	chicken: writable(1.5)
+	chicken: writable(1.5),
+	carrot: writable(0.7)
 };

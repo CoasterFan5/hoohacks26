@@ -1,26 +1,20 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable.svelte';
 	import { livePriceMap } from '$lib/liveAsset/stores';
-	import PhCow from '~icons/ph/cow';
-	import EggIcon from '~icons/ph/egg';
 	import AddBioAssetModal from './AddBioAssetModal.svelte';
-	import { liveAssetList } from '$lib/liveAsset/liveAssetList';
-	import type { Component } from 'svelte';
 	import { getBioAssets } from './bio.remote';
 	import Button from '$lib/components/Button.svelte';
-
-	const iconMap: Record<(typeof liveAssetList)[number], Component> = {
-		cattle: PhCow,
-		chicken: EggIcon
-	};
+	import { iconMap } from '$lib/liveAsset/icons';
 
 	const assets = (await getBioAssets()).assets;
 
 	const cattlePrice = livePriceMap['cattle'];
 	const chickenPrice = livePriceMap['chicken'];
+	const carrotPrice = livePriceMap['carrot'];
 	const currentPrices = $derived({
 		cattle: $cattlePrice,
-		chicken: $chickenPrice
+		chicken: $chickenPrice,
+		carrot: $carrotPrice
 	});
 
 	type Asset = (typeof assets)[number];
